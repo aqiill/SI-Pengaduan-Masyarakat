@@ -26,7 +26,15 @@
 			<td><?php echo $r['nik']; ?></td>
 			<td><?php echo $r['nama']; ?></td>
 			<td><?php echo $r['tgl_pengaduan']; ?></td>
-			<td><?php echo $r['status']; ?></td>
+			<td>
+				<?php if ($r['status']=="proses") { ?>
+					<a class="btn modal-trigger orange" href="status.php?s=proses&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Proses</a>
+				<?php }elseif($r['status']=="belum diproses"){ ?> 
+					<a class="btn modal-trigger red" href="status.php?s=belum&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Belum DIproses</a>
+				<?php }elseif ($r['status']=="selesai") { ?>
+				<a class="btn modal-trigger green" href="#!">Selesai</a>
+				<?php } ?>
+			</td>
 			<td><a class="btn modal-trigger blue" href="#more?id_pengaduan=<?php echo $r['id_pengaduan'] ?>">More</a>  <a class="btn red" onclick="return confirm('Anda Yakin Ingin Menghapus Y/N')" href="index.php?p=pengaduan_hapus&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Hapus</a></td>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------ -->

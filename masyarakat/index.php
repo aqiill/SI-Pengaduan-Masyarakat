@@ -82,7 +82,11 @@
 		elseif(@$_GET['p']=="pengaduan_hapus"){
 			$query=mysqli_query($koneksi,"SELECT * FROM pengaduan WHERE id_pengaduan='".$_GET['id_pengaduan']."'");
 			$data=mysqli_fetch_assoc($query);
-			unlink('../img/'.$data['foto']);
+
+      if($data['foto'] !="noImage.png"){
+			 unlink('../img/'.$data['foto']);
+      }
+
 			if($data['status']=="proses"){
 				$delete=mysqli_query($koneksi,"DELETE FROM pengaduan WHERE id_pengaduan='".$_GET['id_pengaduan']."'");
 				header('location:index.php?p=dashboard');
@@ -113,6 +117,10 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
       <script type="text/javascript">
+        $(document).ready(function(){
+          $('.collapsible').collapsible();
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
           var elems = document.querySelectorAll('.sidenav');
           var instances = M.Sidenav.init(elems);

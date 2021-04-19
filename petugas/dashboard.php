@@ -6,13 +6,13 @@
 		  <div class="card red">
 		    <div class="card-content white-text">
 			<?php 
-				$query = mysqli_query($koneksi,"SELECT * FROM pengaduan WHERE status='proses'");
+				$query = mysqli_query($koneksi,"SELECT * FROM pengaduan WHERE status='proses' OR status='belum diproses'");
 				$jlmmember = mysqli_num_rows($query);
 				if($jlmmember<1){
 					$jlmmember=0;
 				}
 			 ?>
-		      <span class="card-title">Laporan Status Proses<b class="right"><?php echo $jlmmember; ?></b></span>
+		      <span class="card-title">Laporan Masuk<b class="right"><?php echo $jlmmember; ?></b></span>
 		      <p></p>
 		    </div>
 		  </div>
