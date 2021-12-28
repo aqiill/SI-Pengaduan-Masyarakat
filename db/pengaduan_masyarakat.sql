@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2020 at 02:45 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.2.20
+-- Waktu pembuatan: 28 Des 2021 pada 03.08
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `masyarakat`
+-- Struktur dari tabel `masyarakat`
 --
 
 CREATE TABLE `masyarakat` (
@@ -36,17 +35,10 @@ CREATE TABLE `masyarakat` (
   `telp` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `masyarakat`
---
-
-INSERT INTO `masyarakat` (`nik`, `nama`, `username`, `password`, `telp`) VALUES
-('1376012310010005', 'Aqil Rahman', 'masyarakat', 'd9a8c6c010a37fdc9850fe6d8c064880', '085364287180');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengaduan`
+-- Struktur dari tabel `pengaduan`
 --
 
 CREATE TABLE `pengaduan` (
@@ -58,17 +50,10 @@ CREATE TABLE `pengaduan` (
   `status` enum('proses','selesai') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pengaduan`
---
-
-INSERT INTO `pengaduan` (`id_pengaduan`, `tgl_pengaduan`, `nik`, `isi_laporan`, `foto`, `status`) VALUES
-(1, '2020-02-13', '1376012310010005', 'pak itiak urang masuak rumah wak', '130220204341itiak.png', 'selesai');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `petugas`
+-- Struktur dari tabel `petugas`
 --
 
 CREATE TABLE `petugas` (
@@ -81,7 +66,7 @@ CREATE TABLE `petugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `petugas`
+-- Dumping data untuk tabel `petugas`
 --
 
 INSERT INTO `petugas` (`id_petugas`, `nama_petugas`, `username`, `password`, `telp_petugas`, `level`) VALUES
@@ -91,7 +76,7 @@ INSERT INTO `petugas` (`id_petugas`, `nama_petugas`, `username`, `password`, `te
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tanggapan`
+-- Struktur dari tabel `tanggapan`
 --
 
 CREATE TABLE `tanggapan` (
@@ -103,61 +88,54 @@ CREATE TABLE `tanggapan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tanggapan`
---
-
-INSERT INTO `tanggapan` (`id_tanggapan`, `id_pengaduan`, `tgl_tanggapan`, `tanggapan`, `id_petugas`) VALUES
-(1, 1, '2020-02-13', 'berarti awak nan punyo tu mah', 2);
-
---
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `masyarakat`
+-- Indeks untuk tabel `masyarakat`
 --
 ALTER TABLE `masyarakat`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indexes for table `pengaduan`
+-- Indeks untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
   ADD PRIMARY KEY (`id_pengaduan`);
 
 --
--- Indexes for table `petugas`
+-- Indeks untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
   ADD PRIMARY KEY (`id_petugas`);
 
 --
--- Indexes for table `tanggapan`
+-- Indeks untuk tabel `tanggapan`
 --
 ALTER TABLE `tanggapan`
   ADD PRIMARY KEY (`id_tanggapan`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `pengaduan`
+-- AUTO_INCREMENT untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id_pengaduan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengaduan` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `petugas`
+-- AUTO_INCREMENT untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
   MODIFY `id_petugas` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tanggapan`
+-- AUTO_INCREMENT untuk tabel `tanggapan`
 --
 ALTER TABLE `tanggapan`
-  MODIFY `id_tanggapan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_tanggapan` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
